@@ -136,6 +136,115 @@ body {
 
 #section-ambitions { background: var(--ivory); }
 #section-fish      { min-height: 130vh; }
+
+/* ─── SECTION ONE: BALLET ─── */
+#section-ballet {
+  /* a lighter, seamless field — no photographic backdrop, just warm paper */
+  min-height: 170vh;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-top: 14vh;
+  background:
+    radial-gradient(ellipse 130% 70% at 42% 22%,
+      var(--cream) 0%, var(--ivory) 52%, var(--champagne) 120%);
+}
+
+#ballet-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 6vh;
+  pointer-events: none;
+}
+
+#ballet-svg {
+  height: 150vh;
+  width: auto;
+  max-width: 80vw;
+  overflow: visible;
+  /* held just left of centre so the text can breathe on the right */
+  transform: translateX(-12%);
+}
+
+.ballet-leg {
+  fill: url(#legGrad);
+  stroke: var(--taupe);
+  stroke-width: 1;
+  stroke-opacity: 0.5;
+}
+
+.ballet-shoe {
+  fill: url(#satinGrad);
+  stroke: var(--gold);
+  stroke-width: 1;
+  stroke-opacity: 0.45;
+}
+
+.ballet-seam {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.2;
+  stroke-opacity: 0.55;
+}
+
+.ballet-knot {
+  fill: var(--gold-light);
+  stroke: var(--gold);
+  stroke-width: 0.6;
+}
+
+.ankle-wrap {
+  fill: none;
+  stroke: url(#ribbonGrad);
+  stroke-width: 15;
+  stroke-linecap: round;
+}
+
+.ankle-wrap-thin {
+  fill: none;
+  stroke: url(#ribbonGrad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.85;
+}
+
+.ribbon-tail {
+  fill: none;
+  stroke: url(#ribbonGrad);
+  stroke-width: 13;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ribbon-tail-hi {
+  fill: none;
+  stroke: rgba(255, 250, 244, 0.5);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+#section-ballet .section-text {
+  align-self: flex-end;
+  text-align: right;
+  max-width: 24ch;
+  margin-right: clamp(1rem, 6vw, 7rem);
+  margin-top: 26vh;
+}
+
+@media (max-width: 760px) {
+  #section-ballet { align-items: center; }
+  #ballet-svg { transform: none; max-width: 92vw; height: 120vh; }
+  #section-ballet .section-text {
+    align-self: center;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 96vh;
+  }
+}
 #section-debate    { background: #0a0604; color: var(--champagne); min-height: 120vh; perspective: 800px; }
 #section-envelope  { background: var(--ivory); }
 
