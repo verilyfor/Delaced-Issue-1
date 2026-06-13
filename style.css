@@ -139,14 +139,14 @@ body {
 
 /* ─── SECTION ONE: BALLET ─── */
 #section-ballet {
-  /* a lighter, seamless field — no photographic backdrop, just warm paper */
+  /* a lighter, seamless field — the photo dissolves into warm paper */
   min-height: 170vh;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-end;
-  padding-top: 14vh;
+  padding-top: 12vh;
   background:
-    radial-gradient(ellipse 130% 70% at 42% 22%,
-      var(--cream) 0%, var(--ivory) 52%, var(--champagne) 120%);
+    radial-gradient(ellipse 130% 70% at 50% 20%,
+      var(--cream) 0%, var(--ivory) 54%, var(--champagne) 120%);
 }
 
 #ballet-canvas {
@@ -154,67 +154,50 @@ body {
   inset: 0;
   z-index: 1;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 6vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 11vh;
   pointer-events: none;
 }
 
+/* The photograph — lightened and feathered so its studio backdrop melts
+   away into the cream, leaving the shoes floating seamlessly. */
+.ballet-photo {
+  position: relative;
+  width: clamp(260px, 42vw, 520px);
+  aspect-ratio: 1200 / 1413;
+  background: url('IMG_1290.jpeg') center 38% / cover no-repeat;
+  filter: brightness(1.13) contrast(0.9) saturate(0.9);
+  opacity: 0.96;
+  -webkit-mask-image: radial-gradient(ellipse 84% 80% at 50% 40%,
+                        #000 44%, rgba(0, 0, 0, 0) 90%);
+  mask-image: radial-gradient(ellipse 84% 80% at 50% 40%,
+                #000 44%, rgba(0, 0, 0, 0) 90%);
+}
+
+/* cream veil — washes the photo lighter, heavier toward the edges */
+.ballet-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 84% 80% at 50% 40%,
+    rgba(247, 242, 235, 0.12) 38%, rgba(247, 242, 235, 0.62) 88%);
+}
+
+/* ribbon SVG, pulled up under the photo's lower edge so the tails
+   appear to fall straight out of the shoes */
 #ballet-svg {
-  height: 150vh;
-  width: auto;
-  max-width: 80vw;
+  width: clamp(260px, 42vw, 520px);
+  height: auto;
   overflow: visible;
-  /* held just left of centre so the text can breathe on the right */
-  transform: translateX(-12%);
-}
-
-.ballet-leg {
-  fill: url(#legGrad);
-  stroke: var(--taupe);
-  stroke-width: 1;
-  stroke-opacity: 0.5;
-}
-
-.ballet-shoe {
-  fill: url(#satinGrad);
-  stroke: var(--gold);
-  stroke-width: 1;
-  stroke-opacity: 0.45;
-}
-
-.ballet-seam {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.2;
-  stroke-opacity: 0.55;
-}
-
-.ballet-knot {
-  fill: var(--gold-light);
-  stroke: var(--gold);
-  stroke-width: 0.6;
-}
-
-.ankle-wrap {
-  fill: none;
-  stroke: url(#ribbonGrad);
-  stroke-width: 15;
-  stroke-linecap: round;
-}
-
-.ankle-wrap-thin {
-  fill: none;
-  stroke: url(#ribbonGrad);
-  stroke-width: 6;
-  stroke-linecap: round;
-  opacity: 0.85;
+  margin-top: -12%;
 }
 
 .ribbon-tail {
   fill: none;
   stroke: url(#ribbonGrad);
-  stroke-width: 13;
+  stroke-width: 12;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -222,7 +205,7 @@ body {
 .ribbon-tail-hi {
   fill: none;
   stroke: rgba(255, 250, 244, 0.5);
-  stroke-width: 3.4;
+  stroke-width: 3.2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -230,19 +213,18 @@ body {
 #section-ballet .section-text {
   align-self: flex-end;
   text-align: right;
-  max-width: 24ch;
-  margin-right: clamp(1rem, 6vw, 7rem);
-  margin-top: 26vh;
+  max-width: 22ch;
+  margin-right: clamp(1rem, 7vw, 8rem);
 }
 
 @media (max-width: 760px) {
   #section-ballet { align-items: center; }
-  #ballet-svg { transform: none; max-width: 92vw; height: 120vh; }
+  .ballet-photo,
+  #ballet-svg { width: min(78vw, 360px); }
   #section-ballet .section-text {
     align-self: center;
     text-align: center;
     margin-right: 0;
-    margin-top: 96vh;
   }
 }
 #section-debate    { background: #0a0604; color: var(--champagne); min-height: 120vh; perspective: 800px; }
