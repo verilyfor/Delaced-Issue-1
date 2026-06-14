@@ -6,7 +6,7 @@
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
   initScrollReveal();
-  initBalletRibbon();      // section one
+  // initBalletRibbon();   // photo-only ballet layout — ribbons disabled
   // initAmbitions();      // TODO: section two
   // initFishCanvas();     // TODO: section three
   // initDebateCeiling();  // TODO: section four
