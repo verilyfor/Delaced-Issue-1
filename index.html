@@ -31,72 +31,9 @@
 
   <!-- ─── SECTION ONE: BALLET ─── -->
   <section class="section" id="section-ballet">
-    <div id="ballet-canvas">
-      <svg id="ballet-svg" viewBox="0 0 360 1000" preserveAspectRatio="xMidYMin meet"
-           role="img" aria-label="A foot poised en pointe, its satin ribbons slowly unravelling.">
-        <defs>
-          <linearGradient id="legGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%"  stop-color="#f7f2eb"/>
-            <stop offset="60%" stop-color="#efe6da"/>
-            <stop offset="100%" stop-color="#e6dccb"/>
-          </linearGradient>
-          <linearGradient id="satinGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%"  stop-color="#f2ede4"/>
-            <stop offset="55%" stop-color="#e8dece"/>
-            <stop offset="100%" stop-color="#d4b07a"/>
-          </linearGradient>
-          <linearGradient id="ribbonGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%"   stop-color="#e8dece"/>
-            <stop offset="45%"  stop-color="#d4b07a"/>
-            <stop offset="100%" stop-color="#c9a86a"/>
-          </linearGradient>
-          <radialGradient id="floorShadow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%"  stop-color="#c4b8a8" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#c4b8a8" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-
-        <!-- soft shadow grounding the platform tip -->
-        <ellipse cx="206" cy="694" rx="58" ry="13" fill="url(#floorShadow)"/>
-
-        <!-- lower leg + foot, en pointe -->
-        <path class="ballet-leg" d="M152,0
-          C150,110 146,210 152,300
-          C156,348 150,372 156,402
-          C162,470 176,560 196,672
-          C200,690 206,692 210,678
-          C224,610 232,520 226,430
-          C222,392 224,372 220,346
-          C214,250 214,120 208,0 Z"/>
-
-        <!-- satin pointe shoe -->
-        <path class="ballet-shoe" d="M154,470
-          C160,556 176,604 196,676
-          C200,692 206,692 210,678
-          C220,612 230,520 224,440
-          C214,470 198,486 184,484
-          C172,482 162,478 154,470 Z"/>
-
-        <!-- vamp seam + drawstring knot -->
-        <path class="ballet-seam" d="M168,476 C178,492 192,492 206,470"/>
-        <circle class="ballet-knot" cx="187" cy="489" r="2.1"/>
-
-        <!-- ankle wraps (loosen as the page is scrolled) -->
-        <g id="ankle-wraps">
-          <path class="ankle-wrap" d="M150,392 L226,418"/>
-          <path class="ankle-wrap" d="M150,422 L224,386"/>
-          <path class="ankle-wrap-thin" d="M152,372 C175,366 200,366 222,372"/>
-        </g>
-
-        <!-- long ribbons that unravel on scroll (paths drawn by main.js) -->
-        <g id="ribbon-tails">
-          <path id="tail-left"  class="ribbon-tail"/>
-          <path id="tail-right" class="ribbon-tail"/>
-          <path id="tail-left-hi"  class="ribbon-tail-hi"/>
-          <path id="tail-right-hi" class="ribbon-tail-hi"/>
-        </g>
-      </svg>
-    </div>
+    <div class="ballet-photo"
+         role="img"
+         aria-label="Two feet poised en pointe in pearl-embellished satin shoes, ribbons crossing the ankles."></div>
     <div class="section-text">
       <p class="text-cursive-large reveal">"I was going to dance."</p>
       <p class="text-serif-small reveal">until I wasn't.</p>

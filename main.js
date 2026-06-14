@@ -6,7 +6,7 @@
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
   initScrollReveal();
-  initBalletRibbon();      // section one
+  // initBalletRibbon();   // photo-only ballet layout — ribbons disabled
   // initAmbitions();      // TODO: section two
   // initFishCanvas();     // TODO: section three
   // initDebateCeiling();  // TODO: section four
@@ -43,14 +43,13 @@ function sectionProgress(section) {
    Nothing bounces. Nothing pops. */
 
 /* ─── SECTION ONE: BALLET ───
-   The satin ribbons hang from the ankle and unravel as the section is
-   scrolled. They are deliberately long: the reveal happens at the same
-   rate as a short ribbon would, so the unravelling simply lasts longer —
-   the ribbon keeps loosening for most of the section. Gravity pulls each
-   tail down and the wraps slacken off the ankle. */
+   The satin ribbons fall out of the photographed shoes and unravel as the
+   section is scrolled. They are deliberately long: the reveal happens at
+   the same rate as a short ribbon would, so the unravelling simply lasts
+   longer — the ribbon keeps loosening for most of the section while gravity
+   pulls each tail down. */
 function initBalletRibbon() {
   const section = document.getElementById('section-ballet');
-  const wraps   = document.getElementById('ankle-wraps');
   const tL  = document.getElementById('tail-left');
   const tR  = document.getElementById('tail-right');
   const tLh = document.getElementById('tail-left-hi');
@@ -59,13 +58,13 @@ function initBalletRibbon() {
 
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Anchor points where each ribbon leaves the ankle crossing.
+  // Anchor points near the photo's lower edge, where the ribbons fall from.
   const anchors = {
-    left:  { x: 168, y: 420, dir: -1, phase: 0 },
-    right: { x: 206, y: 418, dir:  1, phase: Math.PI },
+    left:  { x: 150, y: 8, dir: -1, phase: 0 },
+    right: { x: 210, y: 8, dir:  1, phase: Math.PI },
   };
 
-  const MAX_LEN = 560;   // long ribbon -> a long, slow unravel
+  const MAX_LEN = 660;   // long ribbon -> a long, slow unravel
   const easeOut = (p) => 1 - Math.pow(1 - p, 3);
 
   // Build a softly drooping ribbon path from an anchor.
@@ -104,10 +103,6 @@ function initBalletRibbon() {
     const t = reduce ? 0 : performance.now() / 1000;
     setTail(tL, tLh, anchors.left,  p, t);
     setTail(tR, tRh, anchors.right, p, t);
-    // wraps slacken and slip a little down the ankle
-    wraps.setAttribute('transform',
-      'translate(0 ' + (p * 16).toFixed(1) + ') rotate(' + (p * -1.6).toFixed(2) + ' 188 404)');
-    wraps.style.opacity = (1 - p * 0.22).toFixed(3);
   }
 
   if (reduce) {
